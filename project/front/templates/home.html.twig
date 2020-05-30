@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for row in beers|batch(3) %}
+        <div class="row mt-3">
+        {% for beer in row %}
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ beer.name }}</h5>
+                        <p class="card-text">This beer is a {{ beer.color }} {{ beer.style }}, brewed by {{ beer.brewer }}.</p>
+                        <p class="card-text"><small class="text-muted">{{ beer.alcohol / 100 }} %</small></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

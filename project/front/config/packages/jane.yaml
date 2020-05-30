@@ -5,3 +5,7 @@ services:
     public: false
 
   Generated\Normalizer\JaneObjectNormalizer: ~
+
+  Generated\Client:
+    factory: ['Generated\Client', 'create']
+    lazy: true

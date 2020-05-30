@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
+use Generated\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
-    public function index()
+    public function index(Client $client)
     {
-        return new Response('Coucou');
+        return $this->render('home.html.twig', [
+            'beers' => $client->getBeers()
+        ]);
     }
 }

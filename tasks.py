@@ -59,7 +59,6 @@ def install(c):
     Install the application (composer, yarn, ...)
     """
     with Builder(c):
-        docker_compose_run(c, 'composer install -n --prefer-dist --optimize-autoloader', directory='common/', no_deps=True)
         docker_compose_run(c, 'composer install -n --prefer-dist --optimize-autoloader', directory='api/', no_deps=True)
         docker_compose_run(c, 'composer install -n --prefer-dist --optimize-autoloader', directory='front/', no_deps=True)
 
@@ -71,7 +70,6 @@ def update(c):
     Install the application (composer, yarn, ...)
     """
     with Builder(c):
-        docker_compose_run(c, 'composer update --no-interaction --prefer-dist --optimize-autoloader', directory='common/', no_deps=True)
         docker_compose_run(c, 'composer update --no-interaction --prefer-dist --optimize-autoloader', directory='api/', no_deps=True)
         docker_compose_run(c, 'composer update --no-interaction --prefer-dist --optimize-autoloader', directory='front/', no_deps=True)
 
